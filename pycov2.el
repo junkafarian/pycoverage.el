@@ -89,11 +89,7 @@
   ;; if linenum in pycov2-data
    (if (member linenum pycov2-data)
           (propertize (format "%4d " linenum) 'face '(:background "#ef2929" :foreground "grey10"))
-        (if pycov2-data
-            ;; covered line
-            (propertize (format "%4d " linenum) 'face '(:background " " :foreground " "))
-          ;; no coverage file has been found
-          (propertize (format "%4d " linenum) 'face '(:background "#fcaf3e" :foreground "grey10"))
+          (propertize (format "%4d " linenum) 'face '(:background " " :foreground " "))
           )
         )
   )
