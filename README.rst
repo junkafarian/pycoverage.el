@@ -14,22 +14,22 @@ Coverage reporter for Python:
 Installation
 ============
 
-Put something like this in your .emacs
+#. Put something like this in your .emacs
 
-(load-file "/home/matt/work/emacs/pycoverage/pycov2.el")
-(require 'linum)
-(require 'pycov2)
-(add-hook 'python-mode-hook
-(function (lambda ()
-(pycov2-mode)
-(linum-mode))))
+   .. code-block:: lisp
+      
+      (load-file "/home/matt/work/emacs/pycoverage/pycov2.el")
+      (require 'linum)
+      (require 'pycov2)
+      (add-hook 'python-mode-hook
+      (function (lambda ()
+      (pycov2-mode)
+      (linum-mode))))
 
+#. Install cov2emacs using setuptools or virtualenv or distutils
 
-Install cov2emacs using setuptools or virtualenv or distutils
-
-Update pycov2-run-script with proper location of cov2emacs
-
-Load pycov2.el
+#. Update the ``cov2emacs-command`` variable with a path to the
+   ``cov2emacs`` command that can be run from emacs.
 
 There should be ``.coverage`` file in the directory of the module you
 want coverage reporting on (or the parents of that directory).  How
@@ -47,7 +47,7 @@ Ideal Usage
 ===========
 
 One runs their tests using coverage.  Then they enter
-``pycoverage-mode``.  That should look for a ``.coverage`` file (or
+``pycov2-mode``.  That should look for a ``.coverage`` file (or
 the figleaf equivalent) and load the overview/results page in another
 buffer.  It will also highlight the current file (iff it's timestamp
 is <= ``.coverage`` timestamp.  Newer timestamp means no guarantees on
