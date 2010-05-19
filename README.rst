@@ -5,7 +5,7 @@ An emacs mode for reporting on coverage stats for python (forked from
 http://github.com/mattharrison/pycoverage.el)
 
 Dependencies
-============
+------------
 
 Coverage reporter for Python:
 
@@ -13,7 +13,7 @@ Coverage reporter for Python:
   * figleaf (support pending)
 
 Installation
-============
+------------
 
 #. Put something like this in your .emacs::
 
@@ -37,13 +37,13 @@ provides a way to view the coverage data in your editor.
 
 
 Running
-=======
+-------
 
 M-x pycov2-mode
 
 
 Ideal Usage
-===========
+-----------
 
 One runs their tests using coverage.  Then they enter
 ``pycov2-mode``.  That should look for a ``.coverage`` file (or
@@ -53,7 +53,7 @@ is <= ``.coverage`` timestamp.  Newer timestamp means no guarantees on
 output.) with coverage information.
 
 Todo
-====
+----
 
   * Make it work!
   * Use flymake mode instead of/in combination with compile mode? - Initial Flymake DONE
@@ -73,6 +73,6 @@ Todo
   * Nose integration?
 
 Thanks
-======
+------
 
   * rcov - for code to start from
