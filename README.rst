@@ -1,7 +1,8 @@
 pycoverage.el
 =============
 
-An emacs mode for reporting on coverage stats for python
+An emacs mode for reporting on coverage stats for python (forked from
+http://github.com/mattharrison/pycoverage.el)
 
 Dependencies
 ============
@@ -14,10 +15,8 @@ Coverage reporter for Python:
 Installation
 ============
 
-#. Put something like this in your .emacs
+#. Put something like this in your .emacs::
 
-   .. code-block:: lisp
-      
       (load-file "/home/matt/work/emacs/pycoverage/pycov2.el")
       (require 'linum)
       (require 'pycov2)
