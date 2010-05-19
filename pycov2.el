@@ -63,7 +63,7 @@
   )
 
 (defun pycov2-run-script (filename)
-  (shell-command-to-string (format "PYTHONPATH=/home/matt/work/emacs/pycoverage/cov2emacs/ /home/matt/work/emacs/pycoverage/cov2emacs/bin/cov2emacs --compile-mode --python-file %s 2>/dev/null"
+  (shell-command-to-string (format "PYTHONPATH=/Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/ /Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/bin/cov2emacs --compile-mode --python-file %s 2>/dev/null"
                                    filename)))
 
 (provide 'pycov2)
