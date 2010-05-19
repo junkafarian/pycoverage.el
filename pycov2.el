@@ -88,12 +88,12 @@
 (defun pycov2-line-format (linenum)
   ;; if linenum in pycov2-data
    (if (member linenum pycov2-data)
-          (propertize " " 'face '(:background "#ef2929" :foreground "#ef2929"))
+          (propertize (format "%4d " linenum) 'face '(:background "#ef2929" :foreground "grey10"))
         (if pycov2-data
             ;; covered line
-            (propertize " " 'face '(:background " " :foreground " "))
-          (propertize " " 'face '(:background "#fcaf3e" :foreground "#fcaf3e"))
+            (propertize (format "%4d " linenum) 'face '(:background " " :foreground " "))
           ;; no coverage file has been found
+          (propertize (format "%4d " linenum) 'face '(:background "#fcaf3e" :foreground "grey10"))
           )
         )
   )
