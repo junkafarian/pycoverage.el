@@ -5,10 +5,12 @@
 (defvar pycov2-color-not-run "#ef2929")
 (defvar pycov2-color-no-data "#fce94f")
 (defvar pycov2-color-covered "")
+(defvar cov2emacs-command "PYTHONPATH=/Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/ /Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/bin/cov2emacs")
 
 (make-variable-buffer-local 'pycov2-mode-text)
 (make-variable-buffer-local 'pycov2-data)
 (make-variable-buffer-local 'pycov2-cov-file)
+(make-variable-buffer-local 'cov2emacs-command)
 
 
 (define-minor-mode pycov2-mode
@@ -99,8 +101,8 @@
   (let*
       (
        (command (if cov_file
-                    ( format "cov2emacs --compile-mode --python-file %s --coverage-file %s" filename cov_file)
-                  ( format "cov2emacs --compile-mode --python-file %s" filename)
+                    ( format "%s --compile-mode --python-file %s --coverage-file %s" cov2emacs-command filename cov_file)
+                  ( format "%s --compile-mode --python-file %s" cov2emacs-command filename)
                   )))
     (message command)
     (shell-command-to-string command)
@@ -108,7 +110,7 @@
   )
 
 (defun pycov2-run-script (filename)
-  (shell-command-to-string (format "PYTHONPATH=/Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/ /Users/junkafarian/.emacs.d/plugins/pycoverage/cov2emacs/bin/cov2emacs --compile-mode --python-file %s 2>/dev/null"
-                                   filename)))
+  (shell-command-to-string (format "%s --compile-mode --python-file %s 2>/dev/null"
+                                   cov2emacs-command filename)))
 
 (provide 'pycov2)
