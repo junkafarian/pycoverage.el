@@ -93,6 +93,7 @@
             ;; covered line
             (propertize " " 'face '(:background " " :foreground " "))
           (propertize " " 'face '(:background "#fcaf3e" :foreground "#fcaf3e"))
+          ;; no coverage file has been found
           )
         )
   )
@@ -109,8 +110,9 @@
     )
   )
 
-(defun pycov2-run-script (filename)
-  (shell-command-to-string (format "%s --compile-mode --python-file %s 2>/dev/null"
-                                   cov2emacs-command filename)))
+;; old run command
+;; (defun pycov2-run-script (filename)
+;;   (shell-command-to-string (format "%s --compile-mode --python-file %s 2>/dev/null"
+;;                                    cov2emacs-command filename)))
 
 (provide 'pycov2)
