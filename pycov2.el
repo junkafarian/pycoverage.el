@@ -1,7 +1,7 @@
 (require 'linum)
 
 (defvar pycov2-data nil "Coverage data for the buffer")
-(defvar pycov2-mode-text " pycov(I)")
+(defvar pycov2-mode-text " pycov")
 (defvar pycov2-color-not-run "#ef2929")
 (defvar pycov2-color-no-data "#fce94f")
 (defvar pycov2-color-covered "")
@@ -92,7 +92,6 @@
           (propertize (format "%4d " linenum) 'face '(:background " " :foreground " "))
           )
         )
-  )
 
 (defun pycov2-run-better (filename &optional cov_file)
   (let*
