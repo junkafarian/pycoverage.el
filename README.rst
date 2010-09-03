@@ -11,6 +11,8 @@ Coverage reporter for Python:
 
   * coverage.py (currently we only support this)
   * figleaf (support pending)
+  * nose (there is limited supported for testing a method/function 
+    using nose)
 
 Installation
 ------------
@@ -31,9 +33,11 @@ Installation
    ``cov2emacs`` command that can be run from emacs.
 
 There should be ``.coverage`` file in the directory of the module you
-want coverage reporting on (or the parents of that directory).  How
-you get it there is currently not solved by this tool, which only
-provides a way to view the coverage data in your editor.
+want coverage reporting on (or the parents of that directory).  If no
+coverage file is found, you may specify one useing pycov2-rerun.  Note
+that if your file has been modified later than the .coverage file, it
+will be considered as stale and ignore it.
+
 
 
 Running
@@ -45,17 +49,21 @@ M-x pycov2-mode
 Ideal Usage
 -----------
 
-One runs their tests using coverage.  Then they enter
-``pycov2-mode``.  That should look for a ``.coverage`` file (or
-the figleaf equivalent) and load the overview/results page in another
-buffer.  It will also highlight the current file (iff it's timestamp
-is <= ``.coverage`` timestamp.  Newer timestamp means no guarantees on
-output.) with coverage information.
+If there is a .coverage file in the directory (or a parent) of the
+source file try to use it for coverage information.  Red highlights
+mean that lines were missed (Coverage percent for file is in mode
+line).  Orange means .coverage file is missing or OLD.
+
+pycov2-rerun will re-run the coverage stats for .coverage file located
+elsewhere.
+
+pycov2-test-function (not implemented) will try to find tests for that
+function and run them.
 
 Todo
 ----
 
-  * Make it work!
+  * Make it work! Semi-DONE
   * Use flymake mode instead of/in combination with compile mode? - Initial Flymake DONE
   * Use missing line numbers instead of covered lines - DONE for coverage.py
   * Make pycoverage-load-report look for a ``.coverage`` file
@@ -64,11 +72,13 @@ Todo
   * Make report use normal coverage.py text output, since it's a
     little friendlier on the eyes (instead of reporting for every 
     group of lines in a file)
-  * Put status in modeline
-    * Nothing - current data
-    * D - dirty
-    * N - no .coverage file available
-    * E - Error (see *messages*)
+  * Put status in modeline - DONE
+    * Number - current coverage %
+    * OLD - dirty
+    * ? - no .coverage file available 
+      Note that if coverage file has not been specified (pycov2-rerun) 
+      it will skip over old .coverage files it finds  (see .cov2emacs.log)
+    * ERR - Error (see *messages*)
   * Figleaf support
   * Nose integration?
 
